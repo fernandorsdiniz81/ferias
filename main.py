@@ -36,7 +36,7 @@ def isabela_dados():
 	mensagem = request.form['isabela_mensagem']
 	registro = (0, hoje, peso, altura, mensagem)
 	db.create("ferias_isabela", registro)
-	return "ok!"
+	return render_template("anotado.html")
 
 
 @app.route('/miguel_dados', methods=['POST'])
@@ -48,7 +48,7 @@ def miguel_dados():
 	mensagem = request.form['miguel_mensagem']
 	registro = (0, hoje, peso, altura, mensagem)
 	db.create("ferias_miguel", registro)
-	return "ok!"
+	return render_template("anotado.html")
 
 
 
