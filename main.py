@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 import datetime
 import database_access
 
-# from dotenv import load_dotenv
-# load_dotenv()
+#from dotenv import load_dotenv
+#load_dotenv()
 
 hoje = str(datetime.datetime.today())[:10]
 db = database_access.DataBase()
@@ -30,7 +30,9 @@ def miguel():
 @app.route('/isabela_dados', methods=['POST'])
 def isabela_dados():
 	peso = request.form['isabela_peso']
+	peso = peso if peso != "" else peso == 0
 	altura = request.form['isabela_altura']
+	altura = altura if altura != "" else altura == 0
 	mensagem = request.form['isabela_mensagem']
 	registro = (0, hoje, peso, altura, mensagem)
 	db.create("ferias_isabela", registro)
@@ -39,19 +41,14 @@ def isabela_dados():
 
 @app.route('/miguel_dados', methods=['POST'])
 def miguel_dados():
-	peso = request.form['miguel_peso']
-	altura = request.form['miguel_altura']
+	peso = request.form['isabela_peso']
+	peso = peso if peso != "" else peso == 0
+	altura = request.form['isabela_altura']
+	altura = altura if altura != "" else altura == 0
 	mensagem = request.form['miguel_mensagem']
 	registro = (0, hoje, peso, altura, mensagem)
 	db.create("ferias_miguel", registro)
 	return "ok!"
-
-
-
-
-
-
-
 
 
 
