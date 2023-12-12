@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 import datetime
 import database_access
 
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 hoje = str(datetime.datetime.today())[:10]
 db = database_access.DataBase()
