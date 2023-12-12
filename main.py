@@ -41,9 +41,9 @@ def isabela_dados():
 
 @app.route('/miguel_dados', methods=['POST'])
 def miguel_dados():
-	peso = request.form['isabela_peso']
+	peso = request.form['miguel_peso']
 	peso = peso if peso != "" else peso == 0
-	altura = request.form['isabela_altura']
+	altura = request.form['miguel_altura']
 	altura = altura if altura != "" else altura == 0
 	mensagem = request.form['miguel_mensagem']
 	registro = (0, hoje, peso, altura, mensagem)
